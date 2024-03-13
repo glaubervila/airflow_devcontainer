@@ -1,10 +1,11 @@
 from airflow.models import DAG
 from airflow.operators.empty import EmptyOperator
 from airflow.operators.bash import BashOperator
+from airflow.decorators import task_group
 import pendulum
 
 with DAG(
-    'meu_primeiro_dag',
+    'my_dag',
     start_date = pendulum.today('UTC').add(days=-1),
     schedule_interval='@daily'
 ) as dag:
